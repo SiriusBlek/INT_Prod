@@ -1,15 +1,13 @@
 const bodyParser = require('body-parser');
+const Security = require('./security');
 
 module.exports = {
     init(app) {
-        /**
-         * BODY PARSER
-         */
         app.use(bodyParser.urlencoded({ extended: true }));
         app.use(bodyParser.json());
 
         app.use((req, res, next) => {
-            res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS ');
+            res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
             res.header('Access-Control-Allow-Credentials', '*');
             res.header(
                 'Access-Control-Allow-Headers',
@@ -20,5 +18,7 @@ module.exports = {
             );
             next();
         });
+
+        app.use(Security.jwtVerification());
     },
 };

@@ -1,3 +1,5 @@
+const logger = require('intel').getLogger('Server|Events');
+
 function onListening() {
     const address = this.address();
 

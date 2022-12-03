@@ -1,3 +1,4 @@
+const logger = require('intel').getLogger('Users|Controller');
 const UserService = require('./service');
 
 async function findUser(req, res) {

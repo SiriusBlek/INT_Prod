@@ -1,3 +1,5 @@
+const logger = require('intel').getLogger('Users|service');
+
 function createUser(id) {
   return {
       message: 'User created successful',
